@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>对连接过程中留下的的字符串的分析与解密</title>
+      <link href="/2021/06/26/secretcode/"/>
+      <url>/2021/06/26/secretcode/</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>昨天，笔者在QQ空间上尝试连接到一个不稳定的精神空间<del>（这个博客）</del>，但由于连接线路受到干扰而中断。最后留下了这样一段字符串：</p><pre><code>NBzHIaDTHIXSbzDJMJUWWzLzMVZDALTHNFzGQsLCFZUWbLY=</code></pre><p>接下来，笔者将简单说明一下自己对这段字符串的解密过程。</p><p><del>（所以自导自演有意思吗喂）</del></p><h1 id="初步观察"><a href="#初步观察" class="headerlink" title="初步观察"></a>初步观察</h1><p>根据这段字符串末尾的“=”与其中的大写、小写字母<del>（并结合笔者的阅历）</del>，初步猜想这可能是经过了base64加密。</p><p>于是笔者使用<a href="https://www.qqxiuzi.cn/bianma/base64.htm">在线工具</a>对其进行base64解密，结果如下：</p><pre><code>4ǡӜү0ɰ[21VCǴ\Ƃl</code></pre><p><del>（这什么玩意）</del></p><p>很显然，直接对这段字符串进行base64解密的方法肯定是错误的。</p><h1 id="深入思考"><a href="#深入思考" class="headerlink" title="深入思考"></a>深入思考</h1><p>再进一步观察，可以发现这段字符串中<strong>没有任何一个数字字符</strong>。</p><p>如此长的一段字符串中，没有任何一个数字一定是小概率事件。因为无论是根据base64，还是base32甚至是base16的索引表来看，数字字符都占了一定的分量。</p><p>再仔细研究这段字符串，发现其中的小写字母不太对劲：这段字符串中的小写字母只有z、a、b和s。而根据这些字母的小写/大写的形状，貌似都可以近似转化为数字。</p><p>所以笔者考虑对字符串中的小写字母转换成数字。</p><h1 id="转换与解密（1）"><a href="#转换与解密（1）" class="headerlink" title="转换与解密（1）"></a>转换与解密（1）</h1><p>将字符串中的z改为2，a（A）改为4，b改为6，s改为5，得到如下字符串：</p><pre><code>NB2HI4DTHIXS62DJMJUWW2L2MVZDALTHNF2GQ5LCFZUW6LY=</code></pre><p>base64解密如下：</p><pre><code>4#Ӝҫ`ɰ[b1VCǴ]C趀</code></pre><p><del>（梅开二度）</del></p><p>看来还是不太对劲。</p><h1 id="转换与解密（2）"><a href="#转换与解密（2）" class="headerlink" title="转换与解密（2）"></a>转换与解密（2）</h1><p>没有小写字母，说明这是base64加密的可能性很低；而其中的数字只出现了2、4、5、6，都在2-7之间。所以考虑用base32解密。</p><p>解密结果如下：</p><pre><code>https://hibikizer0.github.io/</code></pre><p>访问这个网址，便再次成功地连接到了这个不稳定的精神空间<del>（成功发现并访问了这个博客）</del>。</p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>对这段字符串的解密方法为：</p><ol><li>根据字母与数字形状的相似性，将字符串中的小写字母改为数字；</li><li>使用base32解密便可得到结果。</li></ol><h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>在初次连接中还留下了那个不稳定的精神空间的截图。而且由于其博主名与其网址中采用的昵称是一致的，再根据Hexo的Butterfly主题，专业人士甚至可以直接猜出来解密后的网址，而不需要任何解密过程。</p><p><del>（或者甚至直接在github里搜一搜都能找得到）</del></p><p><del>（所以自导自演有意思吗喂）</del></p><h1 id="真·后记"><a href="#真·后记" class="headerlink" title="真·后记"></a>真·后记</h1><p>笔者曾提到过：这个博客主要是用来记录自己的胡言乱语。相对于QQ空间里的说说而言，这里更可能会记录一些笔者内心深处的<del>不稳定的</del>思想。所以便没有直接将这个博客的地址贴在空间里，而是对原地址采用了一些加密方式。</p><p>而这个加密方式的点子，其实是在笔者数月前接触到ss/ssr的加密方式（也就是base系列的加密）时萌发出来的。而在真正开始加密的时候，笔者又寻思着直接用base32加密的特征太明显，很容易被解码，于是再将加密后字符串中的数字根据形状改为小写字母，因此便有了那段字符串与上文的解密过程。</p><p>不想让太多人找到这里，却还是发了空间，HibikiZer0真是个奇怪的人啊。（仰头）</p><p>差不多就先这样吧。</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>HibikiZer0的第一篇博文</title>
       <link href="/2021/06/25/firstblog/"/>
       <url>/2021/06/25/firstblog/</url>
