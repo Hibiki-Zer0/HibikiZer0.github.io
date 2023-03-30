@@ -1,0 +1,20 @@
+@font-face{
+    font-family: 'JetBrains Mono';
+    font-display: swap;
+    src: url('../font/JetBrainsMono-Regular.ttf') format("truetype");
+}
+@font-face{
+    font-family: 'Consola';
+    font-display: swap;
+    src: url('../font/consola.ttf') format("truetype");
+}
+@font-face{
+    font-family: 'MiSans';
+    font-display: swap;
+    src: url('../font/MiSans-Regular.ttf') format("truetype");
+}
+@font-face{
+    font-family: 'HarmonyOS Sans SC';
+    font-display: swap;
+    src: url('../font/HarmonyOS_Sans_SC_Regular.ttf') format("truetype");
+}
